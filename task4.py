@@ -1,7 +1,6 @@
 from datetime import datetime, timedelta
 
 MAX_DAYS = 7
-WEEKEND = [5, 6]
 DATE_FORMAT = "%Y.%m.%d"
 
 def get_upcoming_birthdays(users: list[dict]) -> list[dict]:
@@ -22,7 +21,8 @@ def get_upcoming_birthdays(users: list[dict]) -> list[dict]:
         if is_user_bd_within_range:
             congratulation_date = upcoming_user_bd
             user_bd_weekday = upcoming_user_bd.weekday()
-            is_user_bd_on_weekend = user_bd_weekday in WEEKEND
+            weekend = [5, 6]
+            is_user_bd_on_weekend = user_bd_weekday in weekend
 
             if is_user_bd_on_weekend:
                 additional_days_number = MAX_DAYS - user_bd_weekday
